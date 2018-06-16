@@ -1,11 +1,20 @@
 .input-box{
- text-align: center;
     position: fixed;
     bottom: 20px;
-    width:100%;
-   
+    width:100%;  
 }
 
 .input-box input{
     width: 50%;
 }   
+.todo-list{
+}
+.text-center{
+    text-align:center;
+}
+.text-right{
+    text-align:right;
+}
+.text-left{
+    text-align:left;
+}
