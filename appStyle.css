@@ -1,0 +1,11 @@
+.input-box{
+ text-align: center;
+    position: fixed;
+    bottom: 20px;
+    width:100%;
+   
+}
+
+.input-box input{
+    width: 50%;
+}   
