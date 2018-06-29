@@ -13,6 +13,14 @@
 <body>
     <div ng-app="myApp" ng-controller="mainController">
         <div class="input-box text-center" id="txt_name">
+            <div id="list-wrapper">
+                <div ng-repeat="taskObj in taskArr">
+                    <span>
+                        <input type="checkbox" checked ng-if="taskObj.checkedStatus">
+                        <input type="checkbox" ng-if="!taskObj.checkedStatus">
+                    </span>  {{taskObj.text}}
+                </div>
+            </div>
             <h5>Input Box</h5>
             <input type="text" name="taskText">
             <button id="save">Save</button>
