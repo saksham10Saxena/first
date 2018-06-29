@@ -14,7 +14,6 @@ angular.module('myApp').controller('mainController', function ($scope) {
      * @desc changes the cuurrentCheckedStatus of the selected checkbox
      */
     $scope.handleCheckboxClick = function(taskIndex, currentCheckedStatus){
-        console.log(taskIndex , currentCheckedStatus);
         if(taskIndex === undefined){
             throw 'task index is invalid';
         }

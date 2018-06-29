@@ -18,3 +18,7 @@
 .text-left{
     text-align:left;
 }
+
+.strike-through{
+    text-decoration: line-through;
+}

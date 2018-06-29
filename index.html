@@ -18,11 +18,12 @@
                     <span>
                         <input type="checkbox" checked ng-if="taskObj.checkedStatus" ng-click="handleCheckboxClick($index, taskObj.checkedStatus)">
                         <input type="checkbox" ng-if="!taskObj.checkedStatus" ng-click="handleCheckboxClick($index,taskObj.checkedStatus )">
-                    </span>  {{taskObj.text}}
+                    </span> 
+                    <span class="strike-through" ng-if="taskObj.checkedStatus"> {{taskObj.text}}</span> 
+                    <span ng-if="!taskObj.checkedStatus"> {{taskObj.text}}</span>
                 </div>
             </div>
 
-            {{taskArr}}
             <h5>Input Box</h5>
             <input type="text" name="taskText">
             <button id="save">Save</button>
