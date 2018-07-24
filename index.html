@@ -12,21 +12,36 @@
 
 <body>
     <div ng-app="myApp" ng-controller="mainController">
-        <div class="input-box text-center" id="txt_name">
-            <div id="list-wrapper">
-                <div ng-repeat="taskObj in taskArr">
-                    <span>
-                        <input type="checkbox" checked ng-if="taskObj.checkedStatus" ng-click="handleCheckboxClick($index, taskObj.checkedStatus)">
-                        <input type="checkbox" ng-if="!taskObj.checkedStatus" ng-click="handleCheckboxClick($index,taskObj.checkedStatus )">
-                    </span> 
-                    <span class="strike-through" ng-if="taskObj.checkedStatus"> {{taskObj.text}}</span> 
-                    <span ng-if="!taskObj.checkedStatus"> {{taskObj.text}}</span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    the
+                    <br> group
+                    <br> names
+                    <br> will
+                    <br> come
+                    <br> here
+                    <br>
+                </div>
+                <div class="col-sm-10">
+                    <div class="input-box text-center" id="txt_name">
+                        <div id="list-wrapper">
+                            <div ng-repeat="taskObj in taskArr">
+                                <span>
+                                    <input type="checkbox" checked ng-if="taskObj.checkedStatus" ng-click="handleCheckboxClick($index, taskObj.checkedStatus)">
+                                    <input type="checkbox" ng-if="!taskObj.checkedStatus" ng-click="handleCheckboxClick($index,taskObj.checkedStatus )">
+                                </span>
+                                <span class="strike-through" ng-if="taskObj.checkedStatus"> {{taskObj.text}}</span>
+                                <span ng-if="!taskObj.checkedStatus"> {{taskObj.text}}</span>
+                            </div>
+                        </div>
+                        
+                        <h5>Input Box</h5>
+                        <input type="text" name="taskText">
+                        <button id="save">Save</button>
+                    </div>
                 </div>
             </div>
-
-            <h5>Input Box</h5>
-            <input type="text" name="taskText">
-            <button id="save">Save</button>
         </div>
     </div>
 </body>
