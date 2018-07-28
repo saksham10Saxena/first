@@ -7,8 +7,12 @@
 .input-box input{
     width: 50%;
 }    */
+
 .button-color{
     background-color:"burlywood";
+}
+.right{
+    padding:2%;
 }
 .left{
     padding-right:35%;

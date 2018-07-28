@@ -2,25 +2,13 @@ angular.module('myApp').controller('mainController', function ($scope) {
 
 
     
-    $scope.groupArr = [
-        { name: Group-4, taskArr:[{ checkedStatus: true, text: 'i am a task' }, {checkedStatus: false, text: 'i am also a task' }]},
-        { name: Group-5, taskArr:[{ checkedStatus: true, text: 'i am a task' }, {checkedStatus: false, text: 'i am also a task' }]}
-
-        
-    ];
+    
   
     $scope.visibleTaskArr = [
         { checkedStatus: true, text: 'i am a task' },
         { checkedStatus: false, text: 'i am also a task' }
     ];
-    $scope.groupAdd = function(){
-        $scope.groupArr.push({name=$scope.groupnameInput});
-        $scope.groupnameInput = "";
-    };
-    $scope.selectedGroup(selectedGroupIndex) = function() {
-        visibleTaskArr = selectedGroup.TaskArr;
-    }
-
+   
     
 
     /**
@@ -36,21 +24,21 @@ angular.module('myApp').controller('mainController', function ($scope) {
         if(currentCheckedStatus === undefined){
             throw 'currentCheckedStatus is invalid';
         }
-        $scope.taskArr[taskIndex].checkedStatus = !currentCheckedStatus;
+        $scope.visibleTaskArr[taskIndex].checkedStatus = !currentCheckedStatus;
     }
     $scope.toAdd = function(){
-        $scope.taskArr.push({text: $scope.todoInput, checkedStatus:$scope.handleCheckboxClick});
+        $scope.visibleTaskArr.push({text: $scope.todoInput, checkedStatus:$scope.handleCheckboxClick});
         $scope.todoInput = "";
     };
  
     $scope.remove = function() {
-        var oldList = $scope.taskArr;
-        $scope.taskArr = [ ];
+        var oldList = $scope.visibleTaskArr;
+        $scope.visibleTaskArr = [ ];
         angular.forEach(oldList, function(x) {
-            if (!x.checkedStatus) $scope.taskArr.push(x);
+            if (!x.checkedStatus) $scope.visibleTaskArr.push(x);
         });
     };
-    function openGroup(groupNumber) {
+    $scope.openGroup = function(groupNumber) {
         var i;
         var x = document.getElementsByClassName("group");
         for (i = 0; i < x.length; i++) {

@@ -18,15 +18,23 @@
                 <div class="col-sm-2"><br>
                     <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:130px">
                             <h5 class="w3-bar-item">Tasks</h5>
-                        <br><button class="w3-bar-item w3-button tablink" onclick="openGroup('group-1')">group-1</button>
-                        <br><button class="w3-bar-item w3-button tablink" onclick="openGroup('group-2')">group-2</button>
-                        <br><button class="w3-bar-item w3-button tablink" onclick="openGroup('group-3')">group-3</button>
+                            <br><button class="w3-bar-item w3-button tablink" ng-click="openGroup('group-1')">group-1</button>
+                            <br><button class="w3-bar-item w3-button tablink" ng-click="openGroup('group-2')">group-2</button>
+                            <br><button class="w3-bar-item w3-button tablink" ng-click="openGroup('group-3')">group-3</button>
                         <br><div ng-repeat="groupObj in groupArr">
                              <button ng-click="selectedGroup($index)">{{groupObj.groupName}}</button>
                                 
                                 </div>   
+                                <form ng-submit = "groupAdd()">
+                                        <div class="right">
+                                            <h5>Group Name</h5>
+                                            <input type="text" ng-model="groupnameInput" placeholder="Group Name">
+                                            <button id="save">Save</button>
+                                        </div>
+                                </form>   
                         </div> 
                 </div>
+            </div>    
                 <div class="row">
                 <div class="col-sm-10"><br>
                     <div class="input-box text-center" id="txt_name">
@@ -58,6 +66,14 @@
                                 <h2>Tokyo</h2>
                                 <p>Tokyo is the capital of Japan.</p>
                               </div>
+                              <br><br>
+                              <form ng-submit = "toAdd()">
+                                
+                                    <h5>Input Box</h5>
+                                    <input type="text" ng-model="todoInput" placeholder="Write your task">
+                                    <button id="save">Save</button>
+                               
+                            </form>
                                 
                           </div>
                           
@@ -68,20 +84,10 @@
                         
                     </div>
                 </div>
-            </div>
+            
         </div>
     </div>
-    <script>
-    
-            function openGroup(groupNumber) {
-                var i;
-                var x = document.getElementsByClassName("group");
-                for (i = 0; i < x.length; i++) {
-                   x[i].style.display = "none";  
-                }
-                document.getElementById(groupNumber).style.display = "block";  
-            }
-            </script>
+   
     
 </body>
 
