@@ -9,7 +9,19 @@ angular.module('myApp').controller('mainController', function ($scope) {
         { checkedStatus: false, text: 'i am also a task' }
     ];
    
-    
+    $scope.groupArr = [
+        { name: Group-1, taskArr:[{ checkedStatus: true, text: 'i am a task' }, {checkedStatus: false, text: 'i am also a task' }]},
+        { name: Group-2, taskArr:[{ checkedStatus: true, text: 'i am a task' }, {checkedStatus: false, text: 'i am also a task' }]}
+    ];
+
+    $scope.groupAdd = function(){
+        $scope.groupArr.push({name=$scope.groupnameInput});
+        $scope.groupnameInput = "";
+    };
+    $scope.selectedGroup(selectedGroupIndex) = function() {
+        $scope.visibleTaskArr = selectedGroup.taskArr;
+    }
+
 
     /**
      * 
@@ -38,13 +50,6 @@ angular.module('myApp').controller('mainController', function ($scope) {
             if (!x.checkedStatus) $scope.visibleTaskArr.push(x);
         });
     };
-    $scope.openGroup = function(groupNumber) {
-        var i;
-        var x = document.getElementsByClassName("group");
-        for (i = 0; i < x.length; i++) {
-           x[i].style.display = "none";  
-        }
-        document.getElementById(groupNumber).style.display = "block";  
-    }
+ 
 
 });
