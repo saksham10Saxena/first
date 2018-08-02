@@ -15,7 +15,7 @@ angular.module('myApp').controller('mainController', function ($scope) {
     ];
 
     $scope.groupAdd = function(){
-        $scope.groupArr.push({name:$scope.groupnameInput});
+        $scope.groupArr.push({name:$scope.groupnameInput, taskArr : []});
         $scope.groupnameInput = "";
     };
     $scope.selectedGroup = function(selectedGroupIndex) {
