@@ -10,18 +10,22 @@ angular.module('myApp').controller('mainController', function ($scope) {
     ];
    
     $scope.groupArr = [
-        { name: "Group-1", taskArr:[{ checkedStatus: true, text: 'i am a group-1' }, {checkedStatus: false, text: 'i am also a task' }]},
-        { name: "Group-2", taskArr:[{ checkedStatus: true, text: 'i am a group-2' }, {checkedStatus: false, text: 'i am also a task' }]}
+        { name: "Group-1", taskArr:[{ checkedStatus: true, text: 'i am a group-1' }, {checkedStatus: false, text: 'i am a also group-1' }]},
+        { name: "Group-2", taskArr:[{ checkedStatus: true, text: 'i am a group-2' }, {checkedStatus: false, text: 'i am also group-2' }]}
     ];
 
     $scope.groupAdd = function(){
         $scope.groupArr.push({name:$scope.groupnameInput});
         $scope.groupnameInput = "";
     };
+    $scope.selectedGroup = function(selectedGroupIndex) {
+        
+        $scope.visibleTaskArr = $scope.groupArr[selectedGroupIndex].taskArr;
+    };
     // $scope.selectedGroup = function(selectedGroupIndex) {
         // $scope.visibleTaskArr = selectedGroup.taskArr;
     // }
-    $scope.visibleTaskArr = $scope.groupArr[selectedGroupIndex].taskArr;
+    // $scope.visibleTaskArr = $scope.groupArr[selectedGroupIndex].taskArr;
 
     /**
      * 
@@ -37,8 +41,10 @@ angular.module('myApp').controller('mainController', function ($scope) {
             throw 'currentCheckedStatus is invalid';
         }
         $scope.visibleTaskArr[taskIndex].checkedStatus = !currentCheckedStatus;
-    }
+    };
     $scope.toAdd = function(){
+        // $scope.visibleTaskArr = $scope.groupArr[$scope.groupnameInput].taskArr;
+        // $scope.visibleTaskArr.push({text: $scope.todoInput, checkedStatus:$scope.handleCheckboxClick});
         $scope.visibleTaskArr.push({text: $scope.todoInput, checkedStatus:$scope.handleCheckboxClick});
         $scope.todoInput = "";
     };
