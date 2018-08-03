@@ -5,17 +5,17 @@ angular.module('myApp').controller('mainController', function ($scope) {
     
   
     $scope.visibleTaskArr = [
-        { checkedStatus: true, text: 'i am a task' },
+        { checkedStatus: false, text: 'i am a task' },
         { checkedStatus: false, text: 'i am also a task' }
     ];
    
     $scope.groupArr = [
-        { name: "Group-1", taskArr:[{ checkedStatus: true, text: 'i am a group-1' }, {checkedStatus: false, text: 'i am a also group-1' }]},
-        { name: "Group-2", taskArr:[{ checkedStatus: true, text: 'i am a group-2' }, {checkedStatus: false, text: 'i am also group-2' }]}
+        { name: "Group-1", taskArr:[{ checkedStatus: false, text: 'i am a group-1' }, {checkedStatus: false, text: 'i am a also group-1' }]},
+        { name: "Group-2", taskArr:[{ checkedStatus: false, text: 'i am a group-2' }, {checkedStatus: false, text: 'i am also group-2' }]}
     ];
 
     $scope.groupAdd = function(){
-        $scope.groupArr.push({name:$scope.groupnameInput});
+        $scope.groupArr.push({name:$scope.groupnameInput, taskArr:[]});
         $scope.groupnameInput = "";
     };
     $scope.selectedGroup = function(selectedGroupIndex) {
