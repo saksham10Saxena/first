@@ -15,7 +15,7 @@ angular.module('myApp').controller('mainController', function ($scope) {
     ];
 
     $scope.groupAdd = function(){
-        $scope.groupArr.push({name:$scope.groupnameInput, taskArr:[]});
+        $scope.groupArr.push({name:$scope.groupnameInput, taskArr : []});
         $scope.groupnameInput = "";
     };
     $scope.selectedGroup = function(selectedGroupIndex) {
@@ -45,11 +45,16 @@ angular.module('myApp').controller('mainController', function ($scope) {
     $scope.toAdd = function(){
         // $scope.visibleTaskArr = $scope.groupArr[$scope.groupnameInput].taskArr;
         // $scope.visibleTaskArr.push({text: $scope.todoInput, checkedStatus:$scope.handleCheckboxClick});
-        $scope.visibleTaskArr.push({text: $scope.todoInput, checkedStatus:$scope.handleCheckboxClick});
+        $scope.visibleTaskArr.push({text: $scope.todoInput, checkedStatus:false});
         $scope.todoInput = "";
     };
- 
-    $scope.remove = function() {
+
+    $scope.removeItem = function (removeItemIndex) {
+            
+        $scope.visibleTaskArr.splice(removeItemIndex, 1);
+    };
+
+    $scope.removeMarked = function() {
         var oldList = $scope.visibleTaskArr;
         $scope.visibleTaskArr = [ ];
         angular.forEach(oldList, function(x) {

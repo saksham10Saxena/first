@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-2"><br>
-                    <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:130px">
+                    <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:150px">
                             <h5 class="w3-bar-item">Tasks</h5>
                             <br><div class="w3-bar-item w3-button tablink">
                                     <div ng-repeat="groupObj in groupArr">
@@ -37,15 +37,21 @@
                     <div class="input-box text-center" id="txt_name">
                         <div id="list-wrapper">
                           
-                          <div class="w3-container w3-display-container group">                               
-                                <div ng-repeat="taskObj in visibleTaskArr">
+                          <div class="w3-container w3-display-container group">      
+                                <ul class="w3-ul">   
+                              <div class="lefft">                     
+                                <div ng-repeat="taskObj in visibleTaskArr" class="w3-padding-16">
                                     <span>
                                         <input type="checkbox" checked ng-if="taskObj.checkedStatus" ng-click="handleCheckboxClick($index, taskObj.checkedStatus)">
                                         <input type="checkbox" ng-if="!taskObj.checkedStatus" ng-click="handleCheckboxClick($index,taskObj.checkedStatus )">
                                     </span>
                                     <span class="strike-through" ng-if="taskObj.checkedStatus"> {{taskObj.text}}</span>
                                     <span ng-if="!taskObj.checkedStatus"> {{taskObj.text}}</span>
-                                </div>    
+                                    <span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">X</span>
+                                </div>
+                             </div> 
+                                </ul>   <br>
+                                <p><button ng-click="removeMarked()">Remove Marked</button></p>  
                            </div>
                               
                               
