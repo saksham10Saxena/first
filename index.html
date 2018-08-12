@@ -18,7 +18,7 @@
                 <div class="col-sm-2"><br>
                     <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:150px">
                             <h5 class="w3-bar-item">Tasks</h5>
-                            <br><div class="w3-bar-item">
+                            <br><div class="w3-bar-item" ng-class="tomato">
                                     <div ng-repeat="groupObj in groupArr">
                                       <div class="w3-bar-item w3-button tablink" ng-click="selectedGroup($index)">{{groupObj.name}}</div>       
                                                                    
@@ -26,7 +26,7 @@
                                 </div>                                                              
                                     
                                 <h5>Group Name</h5>
-                                <input type="text" ng-model="groupnameInput" size="10" placeholder="Group Name"><br>
+                                <input type="text" ng-model="groupnameInput" size="15" placeholder="Group Name"><br>
                                 <button ng-click="groupAdd()">Save</button>
                                     
                                 
@@ -48,20 +48,22 @@
                                     </span>
                                     <span class="strike-through" ng-if="taskObj.checkedStatus"> {{taskObj.text}}</span>
                                     <span ng-if="!taskObj.checkedStatus"> {{taskObj.text}}</span>
-                                    <span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">X</span>
+                                    <span ng-click="removeTask($index)" style="cursor:pointer;" class="w3-right w3-margin-right">X</span>
                                 </div>
                              </div> 
                                 </ul>   <br>
-                                <p><button ng-click="removeMarked()">Remove Marked</button></p>  
+                                 <!-- <div ng-if="groupObj.taskArr==[]">   -->
+                                 <p><button ng-click="removeMarked()" ng-disabled ="disable">Remove Marked</button></p>  
+                                <!-- </div>  -->
                            </div>
                               
                               
                               <br><br>
                  
-                                
-                                    <h5>Input Box</h5>
+                                    
+                                    <h5>Add Your Task</h5>
                                     <input type="text" ng-model="todoInput" placeholder="Write your task">
-                                    <button ng-click="toAdd()">Save</button>
+                                    <button ng-click="addTask()">Save</button>
                                
                             
                                 

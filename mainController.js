@@ -1,8 +1,4 @@
 angular.module('myApp').controller('mainController', function ($scope) {
-
-
-    
-    
   
     $scope.visibleTaskArr = [
         { checkedStatus: false, text: 'i am a task' },
@@ -35,23 +31,23 @@ angular.module('myApp').controller('mainController', function ($scope) {
      */
     $scope.handleCheckboxClick = function(taskIndex, currentCheckedStatus){
         if(taskIndex === undefined){
-            throw 'task index is invalid';
+            throw new Error('task index is invalid');
         }
         if(currentCheckedStatus === undefined){
-            throw 'currentCheckedStatus is invalid';
+            throw  Error ('currentCheckedStatus is invalid');
         }
         $scope.visibleTaskArr[taskIndex].checkedStatus = !currentCheckedStatus;
     };
-    $scope.toAdd = function(){
+    $scope.addTask = function(){
         // $scope.visibleTaskArr = $scope.groupArr[$scope.groupnameInput].taskArr;
         // $scope.visibleTaskArr.push({text: $scope.todoInput, checkedStatus:$scope.handleCheckboxClick});
         $scope.visibleTaskArr.push({text: $scope.todoInput, checkedStatus:false});
         $scope.todoInput = "";
     };
 
-    $scope.removeItem = function (removeItemIndex) {
+    $scope.removeTask = function (removeTaskIndex) {
             
-        $scope.visibleTaskArr.splice(removeItemIndex, 1);
+        $scope.visibleTaskArr.splice(removeTaskIndex, 1);
     };
 
     $scope.removeMarked = function() {
@@ -61,6 +57,14 @@ angular.module('myApp').controller('mainController', function ($scope) {
             if (!x.checkedStatus) $scope.visibleTaskArr.push(x);
         });
     };
+
+    $scope.disable = function(){
+        angular.forEach($scope.groupAdd, function(v){
+            if(v.groupArr.taskArr == []){
+                v.disable = true;
+            }
+        })
+    }
  
 
 });
