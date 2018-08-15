@@ -52,9 +52,10 @@
                                 </div>
                              </div> 
                                 </ul>   <br>
-                                 <!-- <div ng-if="groupObj.taskArr==[]">   -->
-                                 <p><button ng-click="removeMarked()" ng-disabled ="disable">Remove Marked</button></p>  
-                                <!-- </div>  -->
+                                  <!-- <div ng-if="groupObj.taskArr.length==0">   -->
+                                      
+                                 <p><button ng-click="removeMarked()" ng-disabled ="visibleTaskArr.length==0">Remove Marked</button></p>  
+                                  <!-- </div> -->
                            </div>
                               
                               

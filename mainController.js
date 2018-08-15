@@ -60,11 +60,11 @@ angular.module('myApp').controller('mainController', function ($scope) {
 
     $scope.disable = function(){
         angular.forEach($scope.groupAdd, function(v){
-            if(v.groupArr.taskArr == []){
-                v.disable = true;
+            if(v.groupArr.taskArr.length == 0){
+                return true;
             }
-        })
-    }
+        });
+    };
  
 
 });
